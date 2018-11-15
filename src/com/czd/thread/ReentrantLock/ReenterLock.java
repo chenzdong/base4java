@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ReenterLock implements  Runnable {
     public static ReentrantLock lock = new ReentrantLock();
-    public int i = 0;
+    public static int i = 0;
 
     @Override
     public void run() {
