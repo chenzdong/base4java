@@ -11,3 +11,5 @@ java 基础实践
   5. semaphore 信号量机制
   6. readWriteLock 读写锁机制
   7. LockSupport的使用
+- algorithm 基础算法问题解答
+- stream java8流式处理
