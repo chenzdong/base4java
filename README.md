@@ -12,5 +12,6 @@ java 基础实践
   6. readWriteLock 读写锁机制
   7. LockSupport的使用
   8. fork/join的使用
+  9. threadLocal的使用
 - algorithm 基础算法问题解答
 - stream java8流式处理
