@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * threadLocalµÄ»ù±¾Ê¹ÓÃ
+ * threadLocalï¿½Ä»ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
  *
  * @author czd
  * @create 2018-11-27 22:00
@@ -16,7 +16,6 @@ public class Demo {
     private static ThreadLocal<SimpleDateFormat> t1 = new ThreadLocal<SimpleDateFormat>();
     public static class ParseDate implements Runnable {
         int i = 0;
-
         public ParseDate(int i) {
             this.i = i;
         }
@@ -40,5 +39,6 @@ public class Demo {
         for (int i = 0; i < 1000; i++) {
             es.execute(new ParseDate(i));
         }
+        es.shutdown();
     }
 }

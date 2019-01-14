@@ -3,6 +3,7 @@ java 基础实践
 - proxy代理
   1. 代理模式的实现
   2. 动态代理实现
+  3. 通过asm实现代理
 - thread 线程相关
   1. baseMethod 线程基础方法测试
   2. group 线程次建立线程
@@ -13,6 +14,7 @@ java 基础实践
   7. LockSupport的使用
   8. fork/join的使用
   9. threadLocal的使用
+  10. threadInit 新建线程的三个基本方法
 - algorithm 基础算法问题解答
 - stream java8流式处理
 - concurrent 并发相关实践
