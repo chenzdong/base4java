@@ -1,4 +1,4 @@
-package com.czd.thread.ReentrantLock;
+package com.czd.thread.reentrantLock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;

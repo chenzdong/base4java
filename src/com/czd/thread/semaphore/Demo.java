@@ -18,7 +18,6 @@ public class Demo {
         final Semaphore semaphore = new Semaphore(5);
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("demo-pool-%d").build();
-
         //Common Thread Pool
         ExecutorService pool = new ThreadPoolExecutor(5, 200,
                 0L, TimeUnit.MILLISECONDS,

@@ -19,7 +19,6 @@ public class IPv4Util {
     public static long toLong(String ipString) {
         Preconditions.checkArgument(StringUtils.isNotBlank(ipString),"ipString address cannot be null or empty");
         String[] octets = ipString.split("\\.");
-        System.out.println(octets.length);
         Preconditions.checkArgument(octets.length == 4,"invalid ipString address");
         long ip = 0L;
         for (int i = 3; i >= 0; i--) {

@@ -1,4 +1,4 @@
-package com.czd.thread.ReentrantLock;
+package com.czd.thread.reentrantLock;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @create: 2018/11/15 14:02
  */
 public class FairLock implements Runnable {
-    public static ReentrantLock fairLock = new ReentrantLock();
+    public static ReentrantLock fairLock = new ReentrantLock(true);
 
     @Override
     public void run() {

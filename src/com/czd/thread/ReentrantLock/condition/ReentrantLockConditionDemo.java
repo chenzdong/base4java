@@ -1,4 +1,4 @@
-package com.czd.thread.ReentrantLock.condition;
+package com.czd.thread.reentrantLock.condition;
 
 import java.util.LinkedList;
 import java.util.List;
