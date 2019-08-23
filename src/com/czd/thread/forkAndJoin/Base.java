@@ -35,10 +35,10 @@ public class Base extends RecursiveTask<Long> {
             Base base1 = new Base(start, middle);
             Base base2 = new Base(middle, end);
             //invokeAll相当于自己干活，其他两个也在干活
-            invokeAll(base1, base2);
+//            invokeAll(base1, base2);
             //下列相当于重新分配了两线程，原来的线程就闲置
-//            base1.fork();
-//            base2.fork();
+            base1.fork();
+            base2.fork();
             result = base1.join() + base2.join();
         }
         try {

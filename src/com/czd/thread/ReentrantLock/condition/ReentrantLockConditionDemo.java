@@ -13,8 +13,8 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ReentrantLockConditionDemo {
     private ReentrantLock lock = new ReentrantLock();
-    private Condition full = lock.newCondition();
-    private Condition empty = lock.newCondition();
+    private Condition notFull = lock.newCondition();
+    private Condition notEmpty = lock.newCondition();
     private static List<String> cache = new LinkedList<>();
 
     public void put(String args) throws InterruptedException{
@@ -23,12 +23,12 @@ public class ReentrantLockConditionDemo {
         try {
             while (cache.size() != 0) {
                 System.out.println("cache is full");
-                full.await();
+                notFull.await();
                 System.out.println("put begin");
             }
             System.out.println("puting");
             cache.add(args);
-            empty.signal();
+            notEmpty.signal();
         } finally {
             lock.unlock();
         }
@@ -39,12 +39,12 @@ public class ReentrantLockConditionDemo {
                 lock.lock();
                 while (cache.size() == 0) {
                     System.out.println("cache is empty");
-                    empty.await();
+                    notEmpty.await();
                     System.out.println("get begin");
                 }
                 System.out.println("getting");
                 cache.remove(0);
-                full.signal();
+                notFull.signal();
             }
         } finally {
             lock.unlock();

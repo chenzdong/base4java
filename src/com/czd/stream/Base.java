@@ -34,7 +34,7 @@ public class Base {
         List<Integer> nums = Lists.newArrayList(1,2,3,null,5,7,8,9,1,2,3);
         int result = nums.stream().filter(num -> num != null).
                 distinct().mapToInt(num -> num * 2).
-                peek(System.out::println).skip(2).
+                peek(System.out::println).skip(1).
                 limit(4).sum();
         System.out.println("sum is "+result);
         // 基本方法

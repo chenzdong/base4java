@@ -21,6 +21,7 @@ public class InterruptiblyLock implements Runnable {
     public void run() {
         try {
             if (lock == 1) {
+                System.out.println("线程1先开始");
                 lock1.lockInterruptibly();
                 try {
                     Thread.sleep(500);
@@ -30,6 +31,7 @@ public class InterruptiblyLock implements Runnable {
                 lock2.lockInterruptibly();
                 System.out.println(Thread.currentThread().getName()+" is finished");
             } else {
+                System.out.println("线程2先开始");
                 lock2.lockInterruptibly();
                 try {
                     Thread.sleep(500);
@@ -64,7 +66,7 @@ public class InterruptiblyLock implements Runnable {
         thread2.start();
         Thread.sleep(1000);
         //中断线程2
-        thread2.interrupt();
+//        thread2.interrupt();
     }
 
 }

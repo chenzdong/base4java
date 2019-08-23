@@ -51,9 +51,10 @@ public class ReadWriteLockDemo {
                try {
 //                  demo.handleRead(readLock);
                    demo.handleRead(lock);
-                   countDownLatch.countDown();
                } catch (InterruptedException e) {
                    e.printStackTrace();
+               } finally {
+                   countDownLatch.countDown();
                }
             }
         };
@@ -63,9 +64,10 @@ public class ReadWriteLockDemo {
                 try {
 //                    demo.handleWrite(writeLock, new Random().nextInt());
                     demo.handleWrite(lock, new Random().nextInt());
-                    countDownLatch.countDown();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                } finally {
+                    countDownLatch.countDown();
                 }
             }
         };
