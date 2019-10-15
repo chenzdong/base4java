@@ -4,6 +4,7 @@ java 基础实践
   1. 代理模式的实现
   2. 动态代理实现
   3. 通过asm实现代理
+  4. CGLib实现
 - thread 线程相关
   1. baseMethod 线程基础方法测试
   2. group 线程次建立线程
