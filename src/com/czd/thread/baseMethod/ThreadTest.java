@@ -1,9 +1,10 @@
 package com.czd.thread.baseMethod;
 
-import com.sun.xml.internal.stream.util.ThreadLocalBufferAllocator;
-
 /**
  * 线程基本方法测试
+ * notify/wait方法必须获取到锁
+ * notify执行后不会立即让出资源，等当前线程执行完成才让出
+ * notify先于wait执行 线程会堵塞
  *
  * @author: czd
  * @create: 2018/11/9 8:51

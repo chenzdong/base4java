@@ -22,7 +22,7 @@ public class Demo {
         ExecutorService pool = new ThreadPoolExecutor(5, 200,
                 0L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             pool.execute(()-> {
                 try {
                     semaphore.acquire();

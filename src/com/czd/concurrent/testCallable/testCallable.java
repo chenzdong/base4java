@@ -27,13 +27,13 @@ public class testCallable  implements Callable<String>{
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        Callable<String> callable=new testCallable("my callable test");
-        FutureTask<String> task=new FutureTask<String>(callable);
-        long beginTime=System.currentTimeMillis();
+        Callable<String> callable = new testCallable("my callable test");
+        FutureTask<String> task = new FutureTask<String>(callable);
+        long beginTime = System.currentTimeMillis();
         new Thread(task).start();
         // Callable接口支持返回执行结果，此时需要调用FutureTask.get()方法实现，此方法会阻塞主线程直到获取‘将来’结果；当不调用此方法时，主线程不会阻塞！
-        String result=task.get();
-        long endTime=System.currentTimeMillis();
+        String result = task.get();
+        long endTime = System.currentTimeMillis();
         System.out.println("this is result:"+result);
         System.out.println("cast "+(endTime-beginTime)/1000+" second");
     }

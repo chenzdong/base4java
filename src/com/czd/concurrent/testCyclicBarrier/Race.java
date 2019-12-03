@@ -22,8 +22,8 @@ public class Race {
             }
         });
         List<Player> players=new ArrayList<>();
-        for (int i=0;i<count;i++){
-            players.add(new Player(barrier,String.valueOf(i)));
+        for (int i=0; i<count; i++){
+            players.add(new Player(barrier, String.valueOf(i)));
         }
         ExecutorService service= Executors.newFixedThreadPool(count);
         for(Player player:players){

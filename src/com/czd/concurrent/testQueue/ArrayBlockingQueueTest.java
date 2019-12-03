@@ -30,7 +30,7 @@ public class ArrayBlockingQueueTest<E> extends AbstractQueue<E>
     private final Condition notFull;
 
     public ArrayBlockingQueueTest(int capacity, boolean fair) {
-        if (capacity <= 0){
+        if (capacity <= 0) {
             throw new IllegalArgumentException();
         }
         this.items = new Object[capacity];
@@ -69,8 +69,6 @@ public class ArrayBlockingQueueTest<E> extends AbstractQueue<E>
             lock.unlock();
         }
     }
-
-
 
     public void insert(E v) {
         final Object[] items = this.items;

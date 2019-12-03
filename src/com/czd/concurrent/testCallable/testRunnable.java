@@ -27,11 +27,11 @@ public class testRunnable implements Runnable{
     }
 
     public static void main(String[] args) {
-        Runnable runnable=new testRunnable("my runnable test");
-        long beginTime=System.currentTimeMillis();
+        Runnable runnable = new testRunnable("my runnable test");
+        long beginTime = System.currentTimeMillis();
         new Thread(runnable).start();
         //不妨碍主线程
-        long endTime=System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
         System.out.println("Cast "+(endTime-beginTime)/1000+" second");
     }
 }

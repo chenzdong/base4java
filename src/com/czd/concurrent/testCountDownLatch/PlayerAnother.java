@@ -10,10 +10,10 @@ import java.util.concurrent.CountDownLatch;
  */
 public class PlayerAnother implements Runnable{
     private static int count=1;
-    private final int id=count++;
+    private final int id = count++;
     private CountDownLatch countDownLatch;
     public PlayerAnother(CountDownLatch countDownLatch){
-        this.countDownLatch=countDownLatch;
+        this.countDownLatch = countDownLatch;
     }
 
     @Override

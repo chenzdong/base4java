@@ -26,6 +26,7 @@ public class UseScheduledThreadPoolExecutor{
 //                System.out.println(Thread.currentThread().getName());
             }
         }, 1, 1, TimeUnit.SECONDS);
+        pool.shutdown();
     }
 
 }
