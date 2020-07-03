@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * 动态代理测试
+ * 动态代理测试 针对接口
  *
  * @author: czd
  * @create: 2018/11/7 14:33

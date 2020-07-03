@@ -14,9 +14,10 @@ public class ThreadTest {
 
     public static void main(String[] args) {
         new Thread(new Thread1()).start();
-        System.out.println("start is"+System.currentTimeMillis());
+        System.out.println("start is "+System.currentTimeMillis());
         try {
             Thread.sleep(5000);
+            System.out.println("main is sleeping");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -50,6 +51,7 @@ public class ThreadTest {
                 object.notify();
                 try {
                     Thread.sleep(5000);
+                    System.out.println("thread2 is sleeping");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

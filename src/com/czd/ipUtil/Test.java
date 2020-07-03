@@ -12,6 +12,11 @@ public class Test {
         String s = ":";
         swap(s);
         System.out.println(s);
+        s = "a" + "b" + "c";
+        String a = "A";
+        String b = "b";
+        String c = "C";
+        String r = a + b + c;
     }
     public static void swap(Integer source) {
         source = source + 1;

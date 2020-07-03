@@ -16,24 +16,24 @@ public class TestMember {
         CommonClass common = new CommonClass();
         Class c = common.getClass();
 
-//        // field
-//        try {
-//            Field className = c.getDeclaredField("name");
-//            System.out.println(className.getName());
-//            System.out.println(className.getType());
-//            System.out.println(className.getModifiers());
-//            className.setAccessible(true);
-//            System.out.println(className.get(common));
-//            className.set(common, "hhhhh");
-//            System.out.println(className.get(common));
-//
-//            Field[] fields = c.getDeclaredFields();
-//            for (Field field : fields) {
-//                System.out.println(field.getName());
-//            }
-//        } catch (NoSuchFieldException | IllegalAccessException e) {
-//            e.printStackTrace();
-//        }
+        // field
+        try {
+            Field className = c.getDeclaredField("name");
+            System.out.println(className.getName());
+            System.out.println(className.getType());
+            System.out.println(className.getModifiers());
+            className.setAccessible(true);
+            System.out.println(className.get(common));
+            className.set(common, "hhhhh");
+            System.out.println(className.get(common));
+
+            Field[] fields = c.getDeclaredFields();
+            for (Field field : fields) {
+                System.out.println(field.getName());
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
         // method
         Method method = null;
