@@ -11,8 +11,9 @@ import java.lang.reflect.Method;
  * @create: 2019-10-15 15:02
  */
 public class CGLibTest {
-    interface  IHello {
+    interface IHello {
         void sayHello();
+
         void sayNothing();
     }
 
@@ -21,13 +22,16 @@ public class CGLibTest {
         public void sayHello() {
             System.out.println("Hello man!");
         }
+
         @Override
         public void sayNothing() {
             System.out.println("I don't want to say anything");
         }
     }
-    static class  CGLibProxyHandler implements MethodInterceptor {
+
+    static class CGLibProxyHandler implements MethodInterceptor {
         Object target;
+
         Object invoke(Object objectTarget) {
             this.target = objectTarget;
             Enhancer enhancer = new Enhancer();
@@ -35,6 +39,7 @@ public class CGLibTest {
             enhancer.setCallback(this);
             return enhancer.create();
         }
+
         @Override
         public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
             System.out.println("begin");
@@ -47,6 +52,7 @@ public class CGLibTest {
     public static void main(String[] args) {
         IHello hello = (IHello) new CGLibProxyHandler().invoke(new Hello());
         hello.sayHello();
+        hello.sayNothing();
     }
 
 }

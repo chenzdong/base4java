@@ -1,6 +1,5 @@
 package com.czd.concurrent.testCyclicBarrier;
 
-import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
@@ -10,16 +9,18 @@ import java.util.concurrent.CyclicBarrier;
  * @author: czd
  * @create: 2018/5/10 14:39
  */
-public class Player implements  Runnable{
+public class Player implements Runnable {
     private CyclicBarrier barrier;
     private String name;
-    public Player(CyclicBarrier barrier,String name){
-        this.barrier=barrier;
-        this.name=name;
+
+    public Player(CyclicBarrier barrier, String name) {
+        this.barrier = barrier;
+        this.name = name;
     }
 
     @Override
     public void run() {
+        Thread.currentThread().setName(name);
         System.out.println(name + " 准备");
         try {
             barrier.await();

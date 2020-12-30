@@ -18,8 +18,11 @@ public class PlayerAnother implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("【玩家"+id+"】入场"+" thread is "+Thread.currentThread().getName());
-        countDownLatch.countDown();
+        try {
+            System.out.println("【玩家" + id + "】入场" + " thread is " + Thread.currentThread().getName());
+        } finally {
+            countDownLatch.countDown();
+        }
     }
 
     public static void main(String[] args) throws InterruptedException{

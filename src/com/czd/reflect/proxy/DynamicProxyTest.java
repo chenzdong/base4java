@@ -11,8 +11,9 @@ import java.lang.reflect.Proxy;
  * @create: 2018/11/7 14:33
  */
 public class DynamicProxyTest {
-    interface  IHello {
+    interface IHello {
         void sayHello();
+
         void sayNothing();
     }
 
@@ -21,6 +22,7 @@ public class DynamicProxyTest {
         public void sayHello() {
             System.out.println("Hello man!");
         }
+
         @Override
         public void sayNothing() {
             System.out.println("I don't want to say anything");
@@ -29,6 +31,7 @@ public class DynamicProxyTest {
 
     static class DynamicProxy implements InvocationHandler {
         Object originalObj;
+
         Object bind(Object originalObj) {
             this.originalObj = originalObj;
             return Proxy.newProxyInstance(originalObj.getClass().getClassLoader(),
@@ -38,7 +41,9 @@ public class DynamicProxyTest {
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             System.out.println("welcome");
-            return  method.invoke(originalObj, args);
+            method.invoke(originalObj, args);
+            System.out.println("byebye");
+            return null;
         }
     }
 

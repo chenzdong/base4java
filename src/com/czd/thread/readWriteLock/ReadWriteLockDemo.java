@@ -17,20 +17,21 @@ public class ReadWriteLockDemo {
     private static ReentrantLock lock = new ReentrantLock();
     private static ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
     // 读锁
-    private static Lock readLock= reentrantReadWriteLock.readLock();
+    private static Lock readLock = reentrantReadWriteLock.readLock();
     // 写锁
-    private static Lock writeLock= reentrantReadWriteLock.writeLock();
+    private static Lock writeLock = reentrantReadWriteLock.writeLock();
     private int value;
 
     public Object handleRead(Lock lock) throws InterruptedException {
         try {
             lock.lock();
             Thread.sleep(1000L);
-            return  value;
-        }  finally {
+            return value;
+        } finally {
             lock.unlock();
         }
     }
+
     public void handleWrite(Lock lock, int index) throws InterruptedException {
         try {
             lock.lock();
@@ -48,22 +49,9 @@ public class ReadWriteLockDemo {
         Runnable readRunnable = new Runnable() {
             @Override
             public void run() {
-               try {
-//                  demo.handleRead(readLock);
-                   demo.handleRead(lock);
-               } catch (InterruptedException e) {
-                   e.printStackTrace();
-               } finally {
-                   countDownLatch.countDown();
-               }
-            }
-        };
-        Runnable writeRunnable = new Runnable() {
-            @Override
-            public void run() {
                 try {
-//                    demo.handleWrite(writeLock, new Random().nextInt());
-                    demo.handleWrite(lock, new Random().nextInt());
+                    demo.handleRead(readLock);
+//                   demo.handleRead(lock);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
@@ -71,7 +59,20 @@ public class ReadWriteLockDemo {
                 }
             }
         };
-        for (int i = 0; i < 18 ; i++) {
+        Runnable writeRunnable = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    demo.handleWrite(writeLock, new Random().nextInt());
+//                    demo.handleWrite(lock, new Random().nextInt());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    countDownLatch.countDown();
+                }
+            }
+        };
+        for (int i = 0; i < 18; i++) {
             Thread thread = new Thread(readRunnable);
             thread.start();
         }
@@ -81,7 +82,7 @@ public class ReadWriteLockDemo {
         }
         countDownLatch.await();
         // 读写锁耗时 3022 mills 重入锁耗时20009
-        System.out.println("use time "+(System.currentTimeMillis()-start));
+        System.out.println("use time " + (System.currentTimeMillis() - start));
     }
 }
 

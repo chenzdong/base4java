@@ -41,5 +41,8 @@ public class PascalTriangle {
 
     public static void main(String[] args) {
         List<List<Integer>> lists = generate(5);
+        for (List<Integer> list : lists) {
+            System.out.println(list.toString());
+        }
     }
 }
